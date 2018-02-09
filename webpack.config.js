@@ -7,6 +7,7 @@ module.exports = {
     'build.min': ['./src/index.ts']
   },
   output: {
+    libraryTarget: "umd",
     filename: './dist/[name].js'
   },
   plugins: [

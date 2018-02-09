@@ -22,9 +22,9 @@ export interface ValidateFn {
 }
 
 
-const isObject = (value) => value != null && typeof value === 'object' && Array.isArray(value) === false
+const isObject = value => value != null && typeof value === 'object' && Array.isArray(value) === false
 
-const isArray = (value) => Array.isArray(value)
+const isArray = value => Array.isArray(value)
 
 const isNumber = value => typeof value === 'number' && !isNaN(value)
 
@@ -34,7 +34,7 @@ const isString = value => typeof value === 'string'
 
 const isAny = value => true
 
-export const OBJECT = 'Object',
+const OBJECT = 'Object',
   ARRAY = "Array",
   NUMBER = "Number",
   BOOLEAN = "Boolean",
@@ -186,7 +186,7 @@ const getArraySafeValue: GetSafeValueFn = (params) => {
   }
 }
 
-const getSafeValue: GetSafeValueFn = (params) => {
+export const getSafeValue: GetSafeValueFn = (params) => {
 
   const { value, model, onError = defaultErrorHandle, paths = ["VALUE"] } = params
 
@@ -221,8 +221,6 @@ const getSafeValue: GetSafeValueFn = (params) => {
 }
 
 
-export default getSafeValue
-
 export const Type = {
   [OBJECT]: OBJECT,
   [ARRAY]: ARRAY,
@@ -230,4 +228,9 @@ export const Type = {
   [BOOLEAN]: BOOLEAN,
   [STRING]: STRING,
   [ANY]: ANY
+}
+
+export default {
+  Type,
+  getSafeValue
 }

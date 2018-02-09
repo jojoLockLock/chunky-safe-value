@@ -1,4 +1,4 @@
-import getSafeValue, { Type, GetSafeValueFnModel } from '../index'
+import { Type, GetSafeValueFnModel, getSafeValue } from '../index'
 import * as chai from 'chai'
 
 const { expect } = chai
